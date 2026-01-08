@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Graphic Design — Scott Feher</title>
+  <meta name="description" content="Graphic design work that supports UX craft and tool fluency." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="graphic-page">
+  <div id="top"></div>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Primary">
+      <a class="brand" href="index.html">Scott Feher</a>
+
+      <ul class="nav-list">
+        <li class="nav-work">
+            <a href="index.html" class="nav-work-link">Work</a>
+
+            <div class="nav-work-panel" aria-label="Work pages">
+                <a href="good-things.html">Good Things</a>
+                <a href="interaction-design.html">Fortifone</a>
+                <a href="spin.html">SPIN!</a>
+                <a href="graphic-design.html">Graphic Design</a>
+            </div>
+        </li>
+
+
+        <li class="nav-contact">
+          <a href="index.html#get-in-touch" class="nav-contact-link">Contact</a>
+          <div class="nav-contact-panel" aria-label="Contact information">
+            <a href="mailto:scott.feher999@gmail.com">scott.feher999@gmail.com</a>
+            <a href="https://www.linkedin.com/in/scott-feher-569716294/">https://www.linkedin.com/in/scott-feher-569716294/</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="container">
+    <header class="page-header">
+      <p class="kicker">Graphic Design</p>
+      <h1>Supporting visual craft</h1>
+      <p class="lead">
+        My career focus is UX design, but I include selected graphic design work to demonstrate visual literacy,
+        consistency in execution and confidence using industry-standard tools. This small page contains examples of graphic design work for SPIN!.
+      </p>
+    </header>
+
+    <hr />
+
+    <section class="section" aria-labelledby="spinExamples">
+      <h2 id="spinExamples">SPIN! examples</h2>
+      <p class="lead">
+        Selected outputs from the SPIN! dissertation that show logos, assets and symbols I used during this project.
+      </p>
+
+      <article class="case-tile" aria-label="SPIN graphic design carousel">
+        <div class="tile-media">
+          <span class="tile-counter" id="gdSpinCounter" aria-live="polite">1 / 1</span>
+
+          <button class="tile-arrow tile-prev" type="button" data-carousel="gdSpin" aria-label="Previous image">‹</button>
+          <button class="tile-arrow tile-next" type="button" data-carousel="gdSpin" aria-label="Next image">›</button>
+
+          <button class="tile-imageButton" type="button" data-lightbox="gdSpin" aria-label="Open image preview">
+            <img
+              id="gdSpinImg"
+              class="tile-image"
+              src="images/featuredsections/SPIN!.png"
+              alt="SPIN graphic design preview"
+              loading="lazy"
+            />
+          </button>
+
+        </div>
+      </article>
+    </section>
+
+    <hr />
+
+    <p><a class="back-to-top" href="#top">Back to top ↑</a></p>
+
+    <dialog class="dialog" id="lightbox">
+      <div class="dialog-bar">
+        <strong id="lightboxTitle">Preview</strong>
+        <button type="button" id="lightboxClose">Close</button>
+      </div>
+      <img id="lightboxImg" alt="">
+    </dialog>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Scott Feher</p>
+      <p><a href="index.html">Back to Work</a></p>
+      <p class="small muted">
+        Colophon: Built by me using semantic HTML/CSS and JavaScript, with use of AI-assisted drafting for polish.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = String(new Date().getFullYear());
+
+    document.querySelectorAll('a[href]').forEach(link => {
+      const href = link.getAttribute('href') || '';
+      if (href.startsWith('mailto:')) {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+        return;
+      }
+      try {
+        const url = new URL(link.href, window.location.origin);
+        if (url.origin !== window.location.origin) {
+          link.setAttribute('target', '_blank');
+          link.setAttribute('rel', 'noopener noreferrer');
+        }
+      } catch (e) {}
+    });
+
+    function initTileCarousels(carousels) {
+      function render(key) {
+        const c = carousels[key];
+        if (!c || !c.imgEl || !c.counterEl) return;
+
+        const total = c.slides.length;
+        const slide = c.slides[c.index];
+
+        c.imgEl.src = slide.src;
+        c.imgEl.alt = slide.alt || 'Carousel image';
+        c.counterEl.textContent = `${c.index + 1} / ${total}`;
+
+        if (c.titleEl) c.titleEl.textContent = slide.title || '';
+
+        const hasText = typeof slide.text === 'string' && slide.text.trim().length > 0;
+        const hasBullets = Array.isArray(slide.bullets) && slide.bullets.length > 0;
+
+        if (c.textEl) {
+          c.textEl.hidden = !hasText;
+          if (hasText) c.textEl.textContent = slide.text;
+        }
+
+        if (c.listEl) {
+          c.listEl.hidden = !hasBullets;
+          if (hasBullets) {
+            c.listEl.innerHTML = slide.bullets.map(b => `<li>${b}</li>`).join('');
+          } else {
+            c.listEl.innerHTML = '';
+          }
+        }
+      }
+
+      function step(key, dir) {
+        const c = carousels[key];
+        if (!c) return;
+        const total = c.slides.length;
+        c.index = (c.index + dir + total) % total;
+        render(key);
+      }
+
+      document.querySelectorAll('[data-carousel]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const key = btn.getAttribute('data-carousel');
+          const isPrev = btn.classList.contains('tile-prev');
+          step(key, isPrev ? -1 : 1);
+        });
+      });
+
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxTitle = document.getElementById('lightboxTitle');
+      const lightboxClose = document.getElementById('lightboxClose');
+
+      function openLightbox(title, src, alt) {
+        if (!lightbox || !lightboxImg) return;
+        lightboxTitle.textContent = title || 'Preview';
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || title || 'Preview image';
+        lightbox.showModal();
+      }
+
+      lightboxClose?.addEventListener('click', () => lightbox.close());
+
+      lightbox?.addEventListener('click', (e) => {
+        const rect = lightbox.getBoundingClientRect();
+        const inDialog =
+          e.clientX >= rect.left && e.clientX <= rect.right &&
+          e.clientY >= rect.top && e.clientY <= rect.bottom;
+        if (!inDialog) lightbox.close();
+      });
+
+      document.querySelectorAll('[data-lightbox]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const key = btn.getAttribute('data-lightbox');
+          const c = carousels[key];
+          if (!c) return;
+          const slide = c.slides[c.index];
+          openLightbox(c.name, slide.src, slide.alt);
+        });
+      });
+
+      Object.keys(carousels).forEach(render);
+    }
+
+    const gdSpin = {
+      name: "SPIN! — Graphic design examples",
+      imgEl: document.getElementById("gdSpinImg"),
+      counterEl: document.getElementById("gdSpinCounter"),
+      titleEl: document.getElementById("gdSpinTitle"),
+      textEl: document.getElementById("gdSpinText"),
+      listEl: document.getElementById("gdSpinList"),
+      slides: [
+        {
+          src: "images/graphic/spin/1.png",
+          alt: "SPIN graphic design preview",
+        },
+        {
+          src: "images/graphic/spin/2.png",
+          alt: "SPIN graphic design preview",
+        },
+        {
+          src: "images/graphic/spin/3.png",
+          alt: "SPIN graphic design preview",
+        }
+      ],
+      index: 0
+    };
+
+    initTileCarousels({ gdSpin });
+  </script>
+</body>
+</html>

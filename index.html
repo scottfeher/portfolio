@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scott Feher — UX Designer</title>
+  <meta name="description" content="UX portfolio — research-led, accessibility-minded digital design." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Primary">
+      <a class="brand" href="index.html">Scott Feher</a>
+
+      <ul class="nav-list">
+        <li class="nav-work">
+            <a href="index.html" class="nav-work-link">Work</a>
+
+            <div class="nav-work-panel" aria-label="Work pages">
+                <a href="good-things.html">Good Things</a>
+                <a href="interaction-design.html">Fortifone</a>
+                <a href="spin.html">SPIN!</a>
+                <a href="graphic-design.html">Graphic Design</a>
+            </div>
+        </li>
+
+
+        <li class="nav-contact">
+          <a href="#get-in-touch" class="nav-contact-link">Contact</a>
+
+          <div class="nav-contact-panel" aria-label="Contact information">
+            <a href="mailto:scott.feher999@gmail.com">scott.feher999@gmail.com</a>
+            <a href="https://www.linkedin.com/in/scott-feher-569716294/">https://www.linkedin.com/in/scott-feher-569716294/</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="container">
+    <section class="hero">
+
+      <div class="hero-top">
+        <div class="hero-copy">
+          <h1>UX Designer</h1>
+          <p class="lead">
+            I design intuitive digital experiences by combining evidence-based UX research with interaction design and clear, accessible UI.
+            Below are four areas of work that show how I think and what I build.
+          </p>
+        </div>
+
+        <a
+            class="profile-wrap"
+            href="https://www.linkedin.com/in/scott-feher-569716294/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Scott Feher's LinkedIn profile (opens in a new tab)"
+        >
+            <img
+                class="profile-pic"
+                src="images/profile/1.png"
+                alt="Portrait of Scott Feher"
+                loading="eager"
+            />
+        </a>
+
+      </div>
+
+      <div class="hero-actions">
+        <section id="get-in-touch" class="section">
+          <details class="contact-panel" id="contactDetails">
+            <summary class="button">Get in touch</summary>
+
+            <div class="contact-panel-box" role="region" aria-label="Contact details">
+              <p><strong>Email:</strong>
+                <a href="mailto:scott.feher999@gmail.com">scott.feher999@gmail.com</a>
+              </p>
+
+              <p><strong>LinkedIn:</strong>
+                <a href="https://www.linkedin.com/in/scott-feher-569716294/">https://www.linkedin.com/in/scott-feher-569716294/</a>
+              </p>
+
+              <hr />
+
+              <form id="mailtoForm" class="contact-form">
+                <label>
+                  Subject
+                  <input type="text" id="subject" name="subject" placeholder="e.g. UX role / portfolio" />
+                </label>
+
+                <label>
+                  Message
+                  <textarea id="message" name="message" rows="5" placeholder="Write your message here…"></textarea>
+                </label>
+
+                <button type="submit" class="button button-secondary">Open email draft</button>
+              </form>
+            </div>
+          </details>
+        </section>
+      </div>
+
+    </section>
+    <hr />
+    <section aria-labelledby="featured">
+      <h2 id="featured">My Work</h2>
+
+      <div class="featured-grid">
+        <article class="featured-card">
+          <a href="good-things.html" class="featured-link">
+            <div class="featured-inner">
+              <div class="featured-text">
+                <h3>Good Things</h3>
+                <p>UX redesign and social media strategy for sustainable gift company.</p>
+              </div>
+
+              <div class="featured-thumb">
+                <img src="images/featuredsections/Good Things (2).png" alt="Good Things navigation redesign preview">
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <article class="featured-card">
+          <a href="interaction-design.html" class="featured-link">
+            <div class="featured-inner">
+              <div class="featured-text">
+                <h3>Fortifone</h3>
+                <p>Gamified iOS prototype combatting procrastination using UX and interaction design.</p>
+              </div>
+
+              <div class="featured-thumb">
+                <img src="images/featuredsections/fortifone prototype.png" alt="Fortifone iOS app prototype preview">
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <article class="featured-card">
+          <a href="spin.html" class="featured-link">
+            <div class="featured-inner">
+              <div class="featured-text">
+                <h3>SPIN!</h3>
+                <p>Dissertation project applying the Five Planes of UX from research to prototype.</p>
+              </div>
+
+              <div class="featured-thumb">
+                <img src="images/featuredsections/SPIN!.png" alt="SPIN! UX dissertation prototype preview">
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <article class="featured-card">
+          <a href="graphic-design.html" class="featured-link">
+            <div class="featured-inner">
+              <div class="featured-text">
+                <h3>Graphic Design</h3>
+                <p>Visual design work supporting my UX projects.</p>
+              </div>
+
+              <div class="featured-thumb">
+                <img src="images/featuredsections/Vinyl.png" alt="Graphic design work preview">
+              </div>
+            </div>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <hr />
+
+    <section class="section" aria-labelledby="focus">
+      <h2 id="focus">What I’m focused on</h2>
+      <p class="lead">
+        I’m particularly interested in roles where UX is embedded into delivery: research → insight → prototype → iteration,
+        working closely with stakeholders and building accessible interfaces that serve real users.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Scott Feher</p>
+      <p class="small muted">
+        Colophon: Built by me using semantic HTML/CSS and JavaScript, with use of AI-assisted drafting for polish.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = String(new Date().getFullYear());
+
+    document.getElementById('mailtoForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const subject = encodeURIComponent(document.getElementById('subject').value || 'Hello');
+      const message = encodeURIComponent(document.getElementById('message').value || '');
+      const mailto = `mailto:scott.feher999@gmail.com?subject=${subject}&body=${message}`;
+
+      window.open(mailto, '_blank', 'noopener,noreferrer');
+    });
+
+    document.querySelectorAll('a[href]').forEach(link => {
+      const href = link.getAttribute('href') || '';
+
+      if (href.startsWith('mailto:')) {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+        return;
+      }
+
+      try {
+        const url = new URL(link.href, window.location.origin);
+        if (url.origin !== window.location.origin) {
+          link.setAttribute('target', '_blank');
+          link.setAttribute('rel', 'noopener noreferrer');
+        }
+      } catch (e) {}
+    });
+
+    function openGetInTouch() {
+      const target = document.getElementById('get-in-touch');
+      const details = document.getElementById('contactDetails') || target?.querySelector('details');
+
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (details) details.open = true;
+
+      const summary = details?.querySelector('summary');
+      if (summary) summary.focus();
+
+      history.replaceState(null, '', '#get-in-touch');
+    }
+
+    const navContactLink = document.querySelector('.nav-contact-link');
+    if (navContactLink) {
+      navContactLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        openGetInTouch();
+      });
+    }
+
+    if (window.location.hash === '#get-in-touch') {
+      window.addEventListener('load', () => {
+        openGetInTouch();
+      });
+    }
+  </script>
+</body>
+</html>
