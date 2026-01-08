@@ -246,13 +246,17 @@ a:focus, button:focus, summary:focus{
 
 .profile-wrap{
   width: 210px;
-  height: 210px;
+  aspect-ratio: 1 / 1;   /* keeps it square */
+  height: auto;          /* let aspect-ratio handle height */
   border-radius: 999px;
   overflow: hidden;
   border: 1px solid var(--border);
   background: #f3f4f6;
   flex: 0 0 auto;
+  display:inline-block;
+  text-decoration:none;
 }
+
 
 .profile-wrap{
   display:inline-block; /* since it's now an <a> */
@@ -278,11 +282,9 @@ a:focus, button:focus, summary:focus{
   }
   .profile-wrap{
     width: 160px;
-    height: 160px;
     margin-top: .5rem;
   }
 }
-
 
 .section{
   margin: 1.5rem 0;
@@ -948,7 +950,7 @@ hr{
   justify-content: center;
 }
 
-.profile-pic{
+/* .profile-pic{
   width: 180px;
   height: 180px;
   border-radius: 999px;
@@ -975,7 +977,7 @@ hr{
     width: 120px;
     height: 120px;
   }
-}
+} */
 
 .good-page .tile-overlay p,
 .interaction-page .tile-overlay p,
